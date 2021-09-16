@@ -1,0 +1,19 @@
+version: "3.4"
+x-environment:
+  &QUICKSTART_ENVIRONMENT # These are read from .env file. The values in the .env file maybe overriden by shell envvars
+  INFLUXDB_URL: ${INFLUXDB_URL}
+  INFLUXDB_ORG: ${INFLUXDB_ORG}
+  INFLUXDB_TOKEN: ${INFLUXDB_TOKEN}
+services:
+  python:
+    networks:
+      - "quickstart"
+    build:
+      context: .
+      dockerfile: ./python/Dockerfile
+    ports: ["8000:8000"]
+    environment:
+      <<: *QUICKSTART_ENVIRONMENT
+networks:
+  quickstart:
+    name: influxdb-quickstart
