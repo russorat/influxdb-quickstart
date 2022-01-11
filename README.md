@@ -1,4 +1,4 @@
-# Plaid quickstart
+# Plaid quickstart again
 
 This repository accompanies InfluxDB's **quickstart guide**.
 
